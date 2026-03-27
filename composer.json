@@ -1,0 +1,15 @@
+{
+    "name": "luizlins/projeto-01",
+    "autoload": {
+        "psr-4": {
+            "Luizlins\\Projeto01\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "LuizLins",
+            "email": "luizmagao@gmail.com"
+        }
+    ],
+    "require": {}
+}
