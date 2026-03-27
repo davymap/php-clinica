@@ -95,3 +95,23 @@ class RepositorioMedico implements RepositorioMedicoInterface
         return $listaMedicos;
     }
 }
+
+public function recuperar(Medico $medico): ?Medico
+{
+    $stmt = $this->conexao->prepare("SELECT * FROM medicos WHERE id = ?;");
+    $stmt->bindValue(1, $medico->recuperarId(), PDO::PARAM_INT);
+    $stmt->execute();
+
+    $dados = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$dados) {
+        return null;
+    }
+
+    return new Medico(
+        $dados['id'],
+        $dados['crm'],
+        $dados['nome'],
+        $dados['especialidade']
+    );
+}
